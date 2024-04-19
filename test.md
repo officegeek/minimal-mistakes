@@ -1,11 +1,29 @@
 ```mermaid
-flowchart LR
-    User -->|requests booking| Booking_System[Booking System]
-    Booking_System -->|retrieves availability| Hotel_Database[Hotel Database]
-    Hotel_Database --> Booking_System
-    Booking_System -->|returns options| User
-    User -->|selects room & dates| Booking_System
-    Booking_System -->|processes booking| Payment_Gateway[Payment Gateway]
-    Payment_Gateway -->|confirms transaction| Booking_System
-    Booking_System -->|confirms booking| User
+classDiagram
+    class User {
+        +int id
+        +string name
+        +string email
+    }
+    class Hotel {
+        +int id
+        +string name
+        +string location
+    }
+    class Room {
+        +int id
+        +int hotel_id
+        +string type
+        +float price
+    }
+    class Booking {
+        +int id
+        +int user_id
+        +int room_id
+        +date check_in
+        +date check_out
+    }
+    User "1" -- "0..*" Booking : makes
+    Hotel "1" -- "0..*" Room : contains
+    Room "1" -- "0..*" Booking : booked for
 ```
