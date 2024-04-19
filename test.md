@@ -1,29 +1,29 @@
 ```mermaid
 classDiagram
-    class User {
-        +int id
+    class Users {
+        +int id PK
         +string name
         +string email
     }
-    class Hotel {
-        +int id
+    class Hotels {
+        +int id PK
         +string name
         +string location
     }
-    class Room {
-        +int id
-        +int hotel_id
+    class Rooms {
+        +int id PK
+        +int hotel_id FK
         +string type
         +float price
     }
-    class Booking {
-        +int id
-        +int user_id
-        +int room_id
+    class Bookings {
+        +int id PK
+        +int user_id FK
+        +int room_id FK
         +date check_in
         +date check_out
     }
-    User "1" -- "0..*" Booking : makes
-    Hotel "1" -- "0..*" Room : contains
-    Room "1" -- "0..*" Booking : booked for
+    Users "1" -- "0..*" Bookings : makes
+    Hotels "1" -- "0..*" Rooms : contains
+    Rooms "1" -- "0..*" Bookings : booked for
 ```
