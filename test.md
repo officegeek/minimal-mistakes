@@ -1,5 +1,7 @@
 ```mermaid
-graph LR
-    WA[Web Application] -->|uses| PG[Payment Gateway]
-    WA -->|fetches data from| HD[Hotel Data API]
+graph TD
+    HTML[HTML/CSS/JavaScript] --> React
+    React --> NodeJS[Node.js]
+    NodeJS --> ExpressJS[Express.js]
+    ExpressJS --> PostgreSQL[PostgreSQL]
 ```
