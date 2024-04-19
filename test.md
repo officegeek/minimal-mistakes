@@ -1,5 +1,7 @@
 ```mermaid
-graph LR
-    WS[Web Server] -->|hosts| AS[Application Server]
-    AS -->|connects to| DB[(Database Server)]
+graph TD
+    SM[Search Module] -->|uses| DB[(Database)]
+    BM[Booking Module] -->|uses| DB
+    BM -->|initiates payment via| PG[Payment Gateway]
+    SM -->|search request to| HD[Hotel Data API]
 ```
