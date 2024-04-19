@@ -1,7 +1,5 @@
 ```mermaid
-graph TD
-    HTML[HTML/CSS/JavaScript] --> React
-    React --> NodeJS[Node.js]
-    NodeJS --> ExpressJS[Express.js]
-    ExpressJS --> MySQL[MySQL]
+graph LR
+    WS[Web Server] -->|hosts| AS[Application Server]
+    AS -->|connects to| DB[(Database Server)]
 ```
